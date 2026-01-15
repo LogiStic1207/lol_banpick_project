@@ -1,0 +1,61 @@
+{
+    // Tasks allow you to run common commands from within VS Code.
+    // Here we define a task to execute the Riot API script and a
+    // convenience task to install dependencies.  You can run these
+    // tasks via the Terminal > Run Task… menu or assign keyboard
+    // shortcuts.
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run Riot API script",
+            "type": "shell",
+            // Use the interpreter specified in settings.json.  If you
+            // haven't created a virtual environment yet, VS Code will
+            // fall back to the system Python.
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "${workspaceFolder}/src/riot_api_skeleton.py"
+            ],
+            "options": {
+                "envFile": "${workspaceFolder}/.env"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Install dependencies",
+            "type": "shell",
+            // Installs Python packages listed in requirements.txt.
+            "command": "${config:python.defaultInterpreterPath}",
+            "args": [
+                "-m",
+                "pip",
+                "install",
+                "-r",
+                "${workspaceFolder}/requirements.txt"
+            ],
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Streamlit UI",
+            "type": "shell",
+            "command": "streamlit",
+            "args": [
+                "run",
+                "${workspaceFolder}/src/app.py"
+            ],
+            "options": {
+                "envFile": "${workspaceFolder}/.env"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+    // VS Code project-specific settings.
+    //
+    // These settings configure VS Code to discover the Python interpreter
+    // automatically and to load environment variables from the `.env`
+    // file at the project root.  They also enable autoformatting on
+    // save and ensure that any terminal launched by VS Code inherits
+    // variables defined in `.env`.
+    "python.defaultInterpreterPath": "${workspaceFolder}/venv/bin/python",
+    "python.envFile": "${workspaceFolder}/.env",
+    "editor.formatOnSave": true,
+    // Ensure that tasks and debug sessions respect the `.env` file.
+    "terminal.integrated.env.linux": {
+        "DOTENV_CONFIG_PATH": "${workspaceFolder}/.env"
+    }
+}

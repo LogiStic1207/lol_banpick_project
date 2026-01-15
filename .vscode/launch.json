@@ -1,0 +1,27 @@
+{
+    // VS Code launch configuration for debugging the Riot API script.
+    //
+    // This configuration launches the `riot_api_skeleton.py` script using
+    // Python.  It reads your API key from the environment (see `.env`)
+    // and opens the output in the integrated terminal.  You can run
+    // this configuration via the Run and Debug sidebar in VS Code.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python: Launch Riot API script",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/riot_api_skeleton.py",
+            "console": "integratedTerminal",
+            // Pass through the API key from your environment so it is not
+            // hard‑coded in the script.  VS Code will look up the
+            // RIOT_API_KEY either from your operating system environment
+            // variables or from the `.env` file specified in
+            // `settings.json`.
+            "env": {
+                "RIOT_API_KEY": "${env:RIOT_API_KEY}"
+            },
+            "justMyCode": true
+        }
+    ]
+}
